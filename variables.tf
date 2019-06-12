@@ -36,6 +36,11 @@ variable "admin_username" {
   default     = "azureuser"
 }
 
+variable "custom_data" {
+  description = "The custom data to supply to the machine. This can be used as a cloud-init for Linux systems."
+  default     = ""
+}
+
 variable "storage_account_type" {
   description = "Defines the type of storage account to be created. Valid options are Standard_LRS, Standard_ZRS, Standard_GRS, Standard_RAGRS, Premium_LRS."
   default     = "Premium_LRS"
@@ -67,7 +72,7 @@ variable "vm_os_id" {
 }
 
 variable "is_windows_image" {
-  description = "Boolean flag to notify when the custom image is windows based. Only used in conjunction with vm_os_id"
+  description = "Boolean flag to notify when the custom image is windows based."
   default     = "false"
 }
 
@@ -139,4 +144,10 @@ variable "boot_diagnostics" {
 variable "boot_diagnostics_sa_type" {
   description = "(Optional) Storage account type for boot diagnostics"
   default     = "Standard_LRS"
+}
+
+variable "enable_accelerated_networking" {
+  type        = "string"
+  description = "(Optional) Enable accelerated networking on Network interface"
+  default     = "false"
 }
